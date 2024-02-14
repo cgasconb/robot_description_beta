@@ -4,7 +4,7 @@
   <version>0.0.0</version>
   <description>URDF description for Robotnik</description>
 
-  <url type="website">http://ros.org/wiki/rbkairos_description</url>
+  <url type="website">http://ros.org/wiki/robot_description</url>
   <url type="repository">https://github.com/RobotnikAutomation/robot_description.git</url>
   <url type="bugtracker">https://github.com/RobotnikAutomation/robot_description/issues</url>
 

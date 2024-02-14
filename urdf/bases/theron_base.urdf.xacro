@@ -44,7 +44,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <xacro:if value="${hq}">
           <geometry>
-            <mesh filename="package://rb_theron_description/meshes/bases/theron_base.stl"/>
+            <mesh filename="package://robot_description/meshes/bases/theron_base.stl"/>
           </geometry>
         </xacro:if>
         <xacro:unless value="${hq}">
@@ -61,7 +61,7 @@
         <origin xyz="0 0 0.005" rpy="0 0 0 " />
         <geometry>
           <!--box size="0.05 0.05 0.01"/-->
-          <mesh filename="package://rb_theron_description/meshes/bases/theron_base.dae"/>
+          <mesh filename="package://robot_description/meshes/bases/theron_base.dae"/>
         </geometry>
       </collision>
     </link>

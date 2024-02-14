@@ -3,7 +3,7 @@
 
   <arg name="prefix" default="robot_"/>
   <arg name="robot_xacro" default="$(optenv ROBOT_XACRO rbrobout.urdf.xacro)"/>
-  <arg name="robot_xacro_package" default="$(optenv ROBOT_XACRO_PACKAGE rbrobout_description)"/>
+  <arg name="robot_xacro_package" default="$(optenv ROBOT_XACRO_PACKAGE robot_description)"/>
   <arg name="robot_xacro_relative_path" default="$(optenv ROBOT_XACRO_RELATIVE_PATH /robots/)" />
   <arg name="robot_xacro_path" default="$(eval find(robot_xacro_package) + robot_xacro_relative_path + robot_xacro)"/>
 

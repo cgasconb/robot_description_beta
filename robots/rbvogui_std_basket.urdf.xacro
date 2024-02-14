@@ -11,18 +11,18 @@
     <!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
     <!-- Import rbvogui base elements-->
-    <xacro:include filename="$(find rbvogui_description)/urdf/bases/rbvogui_base.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/bases/rbvogui_base.urdf.xacro" />
 
     <!-- Import rbvogui wheels -->
-    <xacro:include filename="$(find rbvogui_description)/urdf/wheels/motor_wheel.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/motor_wheel.urdf.xacro" />
 
     <!-- Import rbvogui fix wheels -->
-    <xacro:include filename="$(find rbvogui_description)/urdf/wheels/fixed_wheel.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/fixed_wheel.urdf.xacro" />
 
     <!-- Import all available sensors -->
     <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />
-    <xacro:include filename="$(find rbvogui_description)/urdf/structures/gps_mast.urdf.xacro" /> 
-    <xacro:include filename="$(find rbvogui_description)/urdf/structures/basket.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/structures/gps_mast.urdf.xacro" /> 
+    <xacro:include filename="$(find robot_description)/urdf/structures/basket.urdf.xacro" />
 
     <xacro:property name="PI" value="3.1415926535897931"/>
     <xacro:property name="deg2rad" value="0.01745329251"/>

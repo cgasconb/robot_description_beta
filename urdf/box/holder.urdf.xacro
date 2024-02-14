@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <robot name="holder" xmlns:xacro="http://wiki.ros.org/xacro">
 
-  <xacro:include filename="$(find rbkairos_description)/urdf/inertia.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/inertia.urdf.xacro" />
 
   <!--xacro:arg name="prefix" default="box_"/>
   <xacro:property name="prefix" value="$(arg prefix)" /-->
@@ -32,13 +32,13 @@
       <visual>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://rbkairos_description/urdf/box/meshes/box_holder.stl"/>
+          <mesh filename="package://robot_description/urdf/box/meshes/box_holder.stl"/>
         </geometry>
       </visual>
       <collision>
         <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
-          <mesh filename="package://rbkairos_description/urdf/box/meshes/box_holder.stl"/>
+          <mesh filename="package://robot_description/urdf/box/meshes/box_holder.stl"/>
         </geometry>
       </collision>  
     </link>

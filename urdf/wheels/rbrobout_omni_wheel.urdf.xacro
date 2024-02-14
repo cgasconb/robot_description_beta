@@ -30,7 +30,7 @@
         <xacro:if value="${hq}">
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-            <mesh filename="package://rbrobout_description/meshes/wheels/robout_wheel.stl" />
+            <mesh filename="package://robot_description/meshes/wheels/robout_wheel.stl" />
           </geometry>
         </xacro:if>
 

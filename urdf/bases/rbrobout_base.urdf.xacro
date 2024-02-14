@@ -2,7 +2,7 @@
 <robot name="rbrobout" xmlns:xacro="http://wiki.ros.org/xacro">
 
 
-  <xacro:include filename="$(find rbrobout_description)/urdf/bases/rbrobout_base.gazebo.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/bases/rbrobout_base.gazebo.xacro" />
 
   <xacro:macro name="rbrobout_base" params="prefix publish_bf hq">
 
@@ -38,7 +38,7 @@
   		<visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-        <mesh filename="package://rbrobout_description/meshes/bases/robout_chassis.stl"/>
+        <mesh filename="package://robot_description/meshes/bases/robout_chassis.stl"/>
         </geometry>
         <material name="darkgrey">
         <color rgba="0.1 0.1 0.1 1"/>
@@ -47,7 +47,7 @@
   		<collision>
   		   <origin xyz="0 0 0" rpy="0 0 0 " />
   		   <geometry>
-  			 <mesh filename="package://rbrobout_description/meshes/bases/robout_chassis.stl"/>
+  			 <mesh filename="package://robot_description/meshes/bases/robout_chassis.stl"/>
   		   </geometry>
   		</collision>
 	  </link>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find rbsherkan_description)/urdf/utils/inertial.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/utils/inertial.urdf.xacro" />
  
   <xacro:macro name="rbsherkan_base" params="prefix hq">
 
@@ -18,7 +18,7 @@
       <visual>
         <origin xyz="0 0 0.0945" rpy="${M_PI_2} 0 ${M_PI_2}" />
         <geometry>
-          <mesh filename="package://rbsherkan_description/meshes/bases/rbsherkan_base_v1.stl" />
+          <mesh filename="package://robot_description/meshes/bases/rbsherkan_base_v1.stl" />
         </geometry>
         <material name="darkgrey">
           <color rgba="0.45 0.45 0.45 1"/>
@@ -27,7 +27,7 @@
       <collision>
         <origin xyz="0 0 0.0945" rpy="${M_PI_2} 0 ${M_PI_2}" />
         <geometry>
-          <mesh filename="package://rbsherkan_description/meshes/bases/rbsherkan_base_solid_v1.stl" />
+          <mesh filename="package://robot_description/meshes/bases/rbsherkan_base_solid_v1.stl" />
         </geometry>
       </collision>
       <inertial>

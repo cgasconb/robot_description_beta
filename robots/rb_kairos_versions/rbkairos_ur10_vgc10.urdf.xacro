@@ -8,19 +8,19 @@
   <!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
   <!-- Import summit XL base elements -->
-  <xacro:include filename="$(find summit_xl_description)/urdf/bases/summit_xls_base.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/bases/summit_xls_base.urdf.xacro" />
 
   <!-- Include UR-10 ARM -->
   <xacro:include filename="$(find ur_description)/urdf/inc/ur10_macro.xacro" />
 
   <!-- Include OnRobot vgc10 -->
-  <xacro:include filename="$(find rbkairos_description)/urdf/structures/vgc10.urdf.xacro" />
-  <xacro:include filename="$(find rbkairos_description)/urdf/structures/vgc10.gazebo.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/structures/vgc10.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/structures/vgc10.gazebo.xacro" />
 
   <!-- Import summit XL wheels -->
-  <xacro:include filename="$(find summit_xl_description)/urdf/wheels/omni_wheel.urdf.xacro" />
-  <xacro:include filename="$(find summit_xl_description)/urdf/wheels/rubber_wheel.urdf.xacro" />
-  <xacro:include filename="$(find summit_xl_description)/urdf/structures/structure_hokuyo.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/wheels/omni_wheel.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/structures/structure_hokuyo.urdf.xacro" />
 
   <!-- Import all available sensors -->
   <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />

@@ -8,7 +8,7 @@
   <!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
   <!-- Import summit XL base elements -->
-  <xacro:include filename="$(find summit_xl_description)/urdf/bases/summit_xlsk_base_plus.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/bases/summit_xlsk_base_plus.urdf.xacro" />
 
   <!-- Include UR-16 ARM -->
   <!--ur10e parameters files -->
@@ -25,13 +25,13 @@
   <!-- import main macro -->
   <xacro:include filename="$(find ur_description)/urdf/inc/ur16e_macro.xacro" />
 
-  <xacro:include filename="$(find rbkairos_description)/urdf/structures/extension_ur16e.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/structures/extension_ur16e.urdf.xacro" />
 
 
   <!-- Import summit XL wheels -->
-  <xacro:include filename="$(find summit_xl_description)/urdf/wheels/omni_wheel.urdf.xacro" />
-  <xacro:include filename="$(find summit_xl_description)/urdf/wheels/rubber_wheel.urdf.xacro" />
-  <xacro:include filename="$(find summit_xl_description)/urdf/structures/structure_hokuyo.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/wheels/omni_wheel.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/structures/structure_hokuyo.urdf.xacro" />
 
   <!-- Import all available sensors -->
   <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />

@@ -1,6 +1,6 @@
 moveit_setup_assistant_config:
   URDF:
-    package: rbvogui_description
+    package: robot_description
     relative_path: robots/rbvogui_std_ur10_rg2.urdf.xacro
     xacro_args: prefix:=robot_ launch_arm:=true load_kinematics_file:=true gpu:=true
   SRDF:

@@ -10,19 +10,19 @@
 	<!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
 	<!-- Import differential base elements -->
-	<xacro:include filename="$(find rb_theron_description)/robots/rb_theron_base.urdf.xacro" />
+	<xacro:include filename="$(find robot_description)/robots/rb_theron_base.urdf.xacro" />
 
 	<!-- Import wheels -->
-	<xacro:include filename="$(find rb_theron_description)/urdf/wheels/rubber_wheel_150.urdf.xacro" />
+	<xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel_150.urdf.xacro" />
 
 	<!-- Import all available sensors -->
 	<xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />
 
 	<!-- Import Gazebo Stuff -->
-	<xacro:include filename="$(find rb_theron_description)/urdf/common.gazebo.xacro" />
+	<xacro:include filename="$(find robot_description)/urdf/common.gazebo.xacro" />
 
 	<!-- Import Elevator -->
-	<xacro:include filename="$(find rb_theron_description)/urdf/elevator/elevator.urdf.xacro"/>
+	<xacro:include filename="$(find robot_description)/urdf/elevator/elevator.urdf.xacro"/>
 
 	<!-- ***************** -->
 	<!-- Global parameters -->

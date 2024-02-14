@@ -8,16 +8,16 @@
     <!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
     <!-- Import rbsherkan base elements-->
-    <xacro:include filename="$(find rbsherkan_description)/urdf/bases/rbsherkan_base.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/bases/rbsherkan_base.urdf.xacro" />
 
     <!-- Import rbsherkan wheels -->
-    <xacro:include filename="$(find rbsherkan_description)/urdf/wheels/caster.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/caster.urdf.xacro" />
 
     <!-- Import rbsherkan structures -->
-    <xacro:include filename="$(find rbsherkan_description)/urdf/rocker/front_v1.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/rocker/front_v1.urdf.xacro" />
 
     <!-- Import rbsherkan control -->
-    <xacro:include filename="$(find rbsherkan_description)/urdf/ros2_control.urdf.xacro"/>
+    <xacro:include filename="$(find robot_description)/urdf/ros2_control.urdf.xacro"/>
 
     <!-- Import all available sensors -->
     <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />

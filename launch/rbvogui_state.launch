@@ -8,7 +8,7 @@
 
   <arg name="robot_xacro" default="$(optenv ROBOT_XACRO rbvogui_std.urdf.xacro)" />
 
-  <arg name="robot_xacro_path" default="$(find rbvogui_description)/robots/"/>
+  <arg name="robot_xacro_path" default="$(find robot_description)/robots/"/>
   <arg name="robot_use_custom_xacro_path" default="$(optenv ROBOT_USE_CUSTOM_XACRO_PATH false)"/>
   <arg name="robot_custom_xacro_path" default="$(optenv ROBOT_CUSTOM_XACRO_PATH /home/robot/)"/>
 

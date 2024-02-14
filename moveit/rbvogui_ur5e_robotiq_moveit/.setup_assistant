@@ -1,6 +1,6 @@
 moveit_setup_assistant_config:
   URDF:
-    package: rbvogui_description
+    package: robot_description
     relative_path: robots/rbvogui_ur5e.urdf.xacro
     xacro_args: prefix:=robot_
   SRDF:

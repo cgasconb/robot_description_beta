@@ -2,8 +2,8 @@
 <robot name="summit_xl" xmlns:xacro="http://wiki.ros.org/xacro">
 
 
-  <xacro:include filename="$(find summit_xl_description)/urdf/bases/summit_xl_base.gazebo.xacro" />
-  <xacro:include filename="$(find summit_xl_description)/urdf/structures/sick_microscan3_support.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/bases/summit_xl_base.gazebo.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/structures/sick_microscan3_support.urdf.xacro" />
 
   <xacro:macro name="summit_xls_base" params="prefix publish_bf hq laser_support:=true">
 
@@ -40,12 +40,12 @@
       <origin xyz="0 0 0" rpy="0 0 0" />
       <xacro:if value="${hq}">
       <geometry>
-      <mesh filename="package://summit_xl_description/meshes/bases/xls/summit_xlsk_plus.stl"/>
+      <mesh filename="package://robot_description/meshes/bases/xls/summit_xlsk_plus.stl"/>
       </geometry>
       </xacro:if>
       <xacro:unless value="${hq}">
       <geometry>
-      <mesh filename="package://summit_xl_description/meshes/bases/xls/summit_xlsk_plus.dae"/>
+      <mesh filename="package://robot_description/meshes/bases/xls/summit_xlsk_plus.dae"/>
       </geometry>
       </xacro:unless>
       <material name="black">
@@ -55,7 +55,7 @@
     <collision>
        <origin xyz="0 0 0" rpy="0 0 0 " />
        <geometry>
-         <mesh filename="package://summit_xl_description/meshes/bases/xls/summit_xlsk_plus.dae"/>
+         <mesh filename="package://robot_description/meshes/bases/xls/summit_xlsk_plus.dae"/>
        </geometry>
     </collision>
   </link>
@@ -70,7 +70,7 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0" />
     <geometry>
-    <mesh filename="package://summit_xl_description/meshes/bases/xls/summit_xls_chapas_inox_tapas.stl"/>
+    <mesh filename="package://robot_description/meshes/bases/xls/summit_xls_chapas_inox_tapas.stl"/>
     </geometry>
     <material name="darkgrey">
       <color rgba="0.5 0.5 0.5 1"/>
@@ -89,7 +89,7 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0" />
     <geometry>
-    <mesh filename="package://summit_xl_description/meshes/bases/xls/robotnik_logo_chasis.stl"/>
+    <mesh filename="package://robot_description/meshes/bases/xls/robotnik_logo_chasis.stl"/>
     </geometry>
     <material name="darkgrey">
       <color rgba="0.5 0.5 0.5 1"/>
@@ -108,7 +108,7 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0" />
     <geometry>
-    <mesh filename="package://summit_xl_description/meshes/bases/xls/robotnik_logo_chasis.stl"/>
+    <mesh filename="package://robot_description/meshes/bases/xls/robotnik_logo_chasis.stl"/>
     </geometry>
     <material name="darkgrey">
       <color rgba="0.5 0.5 0.5 1"/>
@@ -127,7 +127,7 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0" />
     <geometry>
-    <mesh filename="package://summit_xl_description/meshes/bases/xls/robotnik_logo_chasis.stl"/>
+    <mesh filename="package://robot_description/meshes/bases/xls/robotnik_logo_chasis.stl"/>
     </geometry>
     <material name="darkgrey">
       <color rgba="0.5 0.5 0.5 1"/>
@@ -146,7 +146,7 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0" />
     <geometry>
-    <mesh filename="package://summit_xl_description/meshes/bases/xls/robotnik_logo_chasis.stl"/>
+    <mesh filename="package://robot_description/meshes/bases/xls/robotnik_logo_chasis.stl"/>
     </geometry>
     <material name="darkgrey">
       <color rgba="0.5 0.5 0.5 1"/>

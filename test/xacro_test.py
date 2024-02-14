@@ -12,7 +12,7 @@ def check_xacro_file(name: str):
     """Check if the xacro file is valid."""
 
     description_path = os.path.join(
-        get_package_share_directory("rbsherkan_description"),
+        get_package_share_directory("robot_description"),
         "robots",
         name,
     )

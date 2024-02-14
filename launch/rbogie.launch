@@ -2,10 +2,10 @@
 <launch>
   <arg name="version" default="rbogie.urdf.xacro" />
   <arg name="prefix" default="robot_"/>
-  <arg name="rviz_config" default="$(find rb_theron_description)/rviz/test.rviz"/> 
+  <arg name="rviz_config" default="$(find robot_description)/rviz/test.rviz"/> 
 
   <!-- name="robot/robot_description" -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find rb_theron_description)/robots/versions/$(arg version)' prefix:=$(arg prefix)" />
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find robot_description)/robots/versions/$(arg version)' prefix:=$(arg prefix)" />
 
   <!-- send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

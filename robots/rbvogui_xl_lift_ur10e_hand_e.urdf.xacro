@@ -11,10 +11,10 @@
     <!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
     <!-- Import rbvogui base elements-->
-    <xacro:include filename="$(find rbvogui_description)/urdf/bases/rbvogui_xl_base.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/bases/rbvogui_xl_base.urdf.xacro" />
 
     <!-- Import rbvogui wheels -->
-    <xacro:include filename="$(find rbvogui_description)/urdf/wheels/motor_wheel_xl.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/motor_wheel_xl.urdf.xacro" />
 
     <!-- Import ur arm -->
     <xacro:include filename="$(find ur_description)/urdf/inc/ur10e_macro.xacro" />
@@ -26,14 +26,14 @@
     <xacro:include filename="$(find ewellix_description)/urdf/ewellix_lift_900mm.urdf.xacro" />
 
     <!-- Structures -->
-    <xacro:include filename="$(find rbvogui_description)/urdf/structures/top_cover.urdf.xacro" /> 
-    <xacro:include filename="$(find rbvogui_description)/urdf/structures/gps_mast.urdf.xacro" /> 
+    <xacro:include filename="$(find robot_description)/urdf/structures/top_cover.urdf.xacro" /> 
+    <xacro:include filename="$(find robot_description)/urdf/structures/gps_mast.urdf.xacro" /> 
 
     <!-- Import sick support -->
-    <xacro:include filename="$(find rbvogui_description)/urdf/structures/sick_support.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/structures/sick_support.urdf.xacro" />
 
     <!-- Import sick protector -->
-    <xacro:include filename="$(find rbvogui_description)/urdf/structures/sick_protector.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/structures/sick_protector.urdf.xacro" />
 
     <!-- Import all available sensors -->
     <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />

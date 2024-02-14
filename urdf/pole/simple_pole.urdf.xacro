@@ -28,7 +28,7 @@
 		  		<!-- in this case change origin -->
           <geometry>
             <!-- <box size="0.25 0.25 1.55"/> -->
-            <mesh filename="package://rb_theron_description/meshes/pole/simple_pole.dae"/>
+            <mesh filename="package://robot_description/meshes/pole/simple_pole.dae"/>
           </geometry>
         <material name="darkgrey">
           <color rgba="0.1 0.1 0.1 1"/>
@@ -38,7 +38,7 @@
         <origin xyz="0 0 0" rpy="0 0 0 " />
         <geometry>
           <!-- <box size="0.25 0.25 1.55"/> -->
-          <mesh filename="package://rb_theron_description/meshes/pole/simple_pole.dae"/>
+          <mesh filename="package://robot_description/meshes/pole/simple_pole.dae"/>
         </geometry>
       </collision>
     </link>
