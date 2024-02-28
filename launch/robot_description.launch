@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+
+
+  <arg name="id_robot" default="$(optenv ROBOT_ID robot)"/>
+  <arg name="prefix" default="$(arg id_robot)"/>
+  <arg name="robot_model" default="$(optenv ROBOT_MODEL summit_xl)"/>
+  <arg name="kinematics" default="$(optenv ROBOT_KINEMATICS diff)"/>
+
+  <arg name="robot_xacro_package" default="$(optenv ROBOT_XACRO_PACKAGE summit_xl_description)"/>
+  <arg name="robot_xacro_folder" default="$(optenv ROBOT_XACRO_FOLDER none)"/>
+  <arg name="robot_xacro_file" default="$(optenv ROBOT_XACRO summit_xl_std.urdf.xacro)"/>
+  <arg if="$(eval robot_xacro_folder =='none')" name="robot_xacro_path" default="$(find robot_description)/robots/$(arg robot_xacro_file)"/>
+  <arg if="$(eval robot_xacro_folder !='none')" name="robot_xacro_path" default="$(arg robot_xacro_folder)/$(arg robot_xacro_file)"/>
+
+  <arg name="gps_latitude" default="39.5080331"/>
+  <arg name="gps_longitude" default="-0.4619816"/>
+
+  <arg name="ros_planar_move_plugin" default="false"/>
+  <arg name="ros_planar_move_plugin_force_based" default="false"/>
+  <arg name="use_gpu_for_simulation" default="true"/>
+  <arg name="has_elevator" default="$(optenv ROBOT_HAS_ELEVATOR false)"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro '$(arg robot_xacro_path)'
+          prefix:=$(arg prefix)
+          ros_planar_move_plugin:=$(arg ros_planar_move_plugin)
+          ros_planar_move_plugin_force_based:=$(arg ros_planar_move_plugin_force_based)
+          kinematics:=$(arg kinematics)
+          gpu:=$(arg use_gpu_for_simulation)
+          gps_latitude:='$(arg gps_latitude)'
+          gps_longitude:='$(arg gps_longitude)'
+          has_elevator:='$(arg has_elevator)'" /> 
+
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+      <remap from="/joint_states" to="joint_states" />
+  </node>
+
+</launch>
