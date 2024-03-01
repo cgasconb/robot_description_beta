@@ -12,7 +12,7 @@
 	<xacro:include filename="$(find robot_description)/urdf/bases/rbrobout_base.urdf.xacro" />
 
 	<!-- Import RB-Robout wheels -->
-    <xacro:include filename="$(find robot_description)/urdf/wheels/omni_wheel.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/omni_wheel/rbrobout_omni_wheel.urdf.xacro" />
 
 	<!-- Import all available sensors -->
 	<xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />

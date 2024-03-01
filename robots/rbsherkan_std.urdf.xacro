@@ -11,13 +11,13 @@
     <xacro:include filename="$(find robot_description)/urdf/bases/rbsherkan_base.urdf.xacro" />
 
     <!-- Import rbsherkan wheels -->
-    <xacro:include filename="$(find robot_description)/urdf/wheels/caster.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/caster_wheel/rbsherkan_caster.urdf.xacro" />
 
     <!-- Import rbsherkan structures -->
-    <xacro:include filename="$(find robot_description)/urdf/rocker/front_v1.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/structures/rbsherkan_chassis/rbsherkan_rocker.urdf.xacro" />
 
     <!-- Import rbsherkan control -->
-    <xacro:include filename="$(find robot_description)/urdf/ros2_control.urdf.xacro"/>
+    <xacro:include filename="$(find robot_description)/urdf/structures/common.gazebo.xacro"/>
 
     <!-- Import all available sensors -->
     <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />
@@ -64,7 +64,7 @@
     </xacro:macro>
 
   <!-- Gazebo ros control pluggins -->
-  <xacro:ros2_control namespace="robot" config_controllers="''"/>
+  <xacro:ros_control namespace="robot" config_controllers="''"/>
 
   <xacro:rbsherkan prefix="$(arg prefix)" hq="${hq}" />
 

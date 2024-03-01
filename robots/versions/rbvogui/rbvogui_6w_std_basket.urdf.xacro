@@ -14,12 +14,12 @@
     <xacro:include filename="$(find robot_description)/urdf/bases/rbvogui_6w_base.urdf.xacro" />
 
     <!-- Import rbvogui wheels -->
-    <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel/rbvogui_rubber_wheel.urdf.xacro" />
     
     <!-- Structures -->
-    <xacro:include filename="$(find robot_description)/urdf/structures/front_rocker.urdf.xacro" /> 
-    <xacro:include filename="$(find robot_description)/urdf/structures/rear_rocker.urdf.xacro" /> 
-    <xacro:include filename="$(find robot_description)/urdf/structures/basket.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/structures/rbvogui_chassis/rbvogui_front_rocker.urdf.xacro" /> 
+    <xacro:include filename="$(find robot_description)/urdf/structures/rbvogui_chassis/rbvogui_rear_rocker.urdf.xacro" /> 
+    <xacro:include filename="$(find robot_description)/urdf/structures/container/basket.urdf.xacro" />
     
     <!-- Import all available sensors -->
     <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />

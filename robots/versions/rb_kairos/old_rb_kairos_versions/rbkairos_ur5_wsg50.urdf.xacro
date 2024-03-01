@@ -15,11 +15,11 @@
   <xacro:include filename="$(find ur_description)/urdf/inc/ur5_macro.xacro" />
 
   <!-- Import Schunk WSG-50 -->
-  <xacro:include filename="$(find robot_description)/urdf/structures/wsg_50_support.urdf.xacro"/>
+  <xacro:include filename="$(find robot_description)/urdf/arms/ur/wsg_50_support.urdf.xacro"/>
   <xacro:include filename="$(find wsg_50_simulation)/urdf/wsg_50.urdf.xacro"/>
 
   <!-- Import realsense wrist support-->
-  <xacro:include filename="$(find robot_description)/urdf/structures/realsense_wrist_support.urdf.xacro"/>
+  <xacro:include filename="$(find robot_description)/urdf/structures/sensor_support/realsense_wrist_support.urdf.xacro"/>
 
   <!-- Flag to select the high or low quality model -->
   <xacro:property name="hq" value="true" />

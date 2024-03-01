@@ -2,7 +2,7 @@
 <robot name="rb_theron_v4" xmlns:xacro="http://wiki.ros.org/xacro">
 
 
-  <xacro:include filename="$(find robot_description)/urdf/bases/base.gazebo.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/bases/gazebo/rb_theron_base.gazebo.xacro" />
 
   <xacro:macro name="rb_theron_base_v4" params="prefix publish_bf hq">
 
@@ -69,7 +69,7 @@
   <visual>
     <origin xyz="0 0 0" rpy="0 0 0" />
     <geometry>
-    <mesh filename="package://robot_description/meshes/bases/xls/summit_xls_chapas_inox_tapas.stl"/>
+    <mesh filename="package://robot_description/meshes/bases/legacy/xls/summit_xls_chapas_inox_tapas.stl"/>
     </geometry>
     <material name="darkgrey">
       <color rgba="0.5 0.5 0.5 1"/>

@@ -12,8 +12,8 @@
     <xacro:include filename="$(find robot_description)/urdf/bases/summit_xl_base.urdf.xacro" />
 
     <!-- Import summit XL wheels -->
-    <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel.urdf.xacro" />
-    <xacro:include filename="$(find robot_description)/urdf/wheels/omni_wheel.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel/rubber_wheel.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/omni_wheel/omni_wheel.urdf.xacro" />
 
 
     <!-- Import all available sensors -->

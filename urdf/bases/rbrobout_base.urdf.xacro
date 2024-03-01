@@ -2,7 +2,7 @@
 <robot name="rbrobout" xmlns:xacro="http://wiki.ros.org/xacro">
 
 
-  <xacro:include filename="$(find robot_description)/urdf/bases/rbrobout_base.gazebo.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/bases/gazebo/rbrobout_base.gazebo.xacro" />
 
   <xacro:macro name="rbrobout_base" params="prefix publish_bf hq">
 

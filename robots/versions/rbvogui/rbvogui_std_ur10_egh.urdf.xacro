@@ -15,7 +15,7 @@
     <xacro:include filename="$(find robot_description)/urdf/bases/rbvogui_base.urdf.xacro" />
 
     <!-- Import rbvogui wheels -->
-    <xacro:include filename="$(find robot_description)/urdf/wheels/motor_wheel.urdf.xacro" />
+    <xacro:include filename="$(find robot_description)/urdf/wheels/motor_wheel/rbvogui_motor_wheel.urdf.xacro" />
 
     <!-- Import all available sensors -->
     <xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />

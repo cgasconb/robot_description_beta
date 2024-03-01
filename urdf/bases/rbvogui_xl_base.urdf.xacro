@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://wiki.ros.org/xacro">
 
-  <xacro:include filename="$(find robot_description)/urdf/bases/rbvogui_base.gazebo.xacro" />
-  <xacro:include filename="$(find robot_description)/urdf/inertia.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/bases/gazebo/rbvogui_base.gazebo.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/structures/rbvogui_chassis/rbvogui_inertia.urdf.xacro" />
 
   <xacro:macro name="rbvogui_base" params="prefix publish_bf base_height:=0.1425 hq">
 
