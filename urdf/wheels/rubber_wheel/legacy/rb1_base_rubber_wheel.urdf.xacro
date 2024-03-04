@@ -37,10 +37,10 @@
 			<origin xyz="0 0 0" rpy="0 0 0" />
 			<geometry>
 				<xacro:if value="${reflect}">
-					<mesh filename="package://robot_description/meshes/wheels/rubber_wheels/wheel_rubber_6inch.dae" />
+					<mesh filename="package://robot_description/meshes/wheels/rubber_wheel/wheel_rubber_6inch.dae" />
 				</xacro:if>
 				<xacro:unless value="${reflect}">
-					<mesh filename="package://robot_description/meshes/wheels/rubber_wheels/wheel_rubber_6inch.dae" />
+					<mesh filename="package://robot_description/meshes/wheels/rubber_wheel/wheel_rubber_6inch.dae" />
 				</xacro:unless>
 			</geometry>
 		</xacro:if>

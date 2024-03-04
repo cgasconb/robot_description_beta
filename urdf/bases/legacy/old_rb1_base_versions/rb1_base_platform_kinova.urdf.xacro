@@ -9,17 +9,17 @@
 	<!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
 
 	<!-- Import RB1 base elements -->
-    <xacro:include filename="$(find rb1_base_description)/urdf/bases/rb1_base_v3.urdf.xacro" /> <!-- v3 name from engineering department -->
+    <xacro:include filename="$(find robot_description)/urdf/bases/rb1_base_v3.urdf.xacro" /> <!-- v3 name from engineering department -->
 	
 	<!-- Import RB1 wheels -->
-	<xacro:include filename="$(find rb1_base_description)/urdf/wheels/rubber_wheel/rubber_wheel_150.urdf.xacro" />	
-	<xacro:include filename="$(find rb1_base_description)/urdf/wheels/omni_wheel/omni_wheel.urdf.xacro" />
+	<xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel/rubber_wheel_150.urdf.xacro" />	
+	<xacro:include filename="$(find robot_description)/urdf/wheels/omni_wheel/omni_wheel.urdf.xacro" />
     
 	<!-- Import all available sensors -->
 	<xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />
     	
     <!-- Import Elevator -->
-	<xacro:include filename="$(find rb1_base_description)/urdf/structures/elevator/rb1_base_elevator.urdf.xacro"/>
+	<xacro:include filename="$(find robot_description)/urdf/structures/elevator/rb1_base_elevator.urdf.xacro"/>
 
   
 	<!-- rb1_base -->
@@ -92,4 +92,3 @@
     
 	</xacro:macro>
 </robot>
-

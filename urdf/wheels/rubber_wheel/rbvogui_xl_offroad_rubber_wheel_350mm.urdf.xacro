@@ -64,7 +64,7 @@
             <origin xyz="0 0 0" rpy="0 0 0" />
           </xacro:unless>
           <geometry>
-            <mesh filename="package://robot_description/meshes/wheels/rubber_wheels/wheel_350mm.stl" />
+            <mesh filename="package://robot_description/meshes/wheels/rubber_wheel/wheel_350mm.stl" />
           </geometry>
         </xacro:if>
         <!-- LOW RESOLUTION WHEELS -->
