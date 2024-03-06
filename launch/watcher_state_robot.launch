@@ -15,7 +15,7 @@
 
   
   <arg name="robot_xacro"  default="$(optenv ROBOT_XACRO summit_xl_std.urdf.xacro)"  doc="Different robot versions: ('')"/>
-  <arg name="urdf_file" default="$(find xacro)/xacro '$(find inspection_robot_description)/robots/$(arg robot_xacro)' prefix:=$(arg prefix)  ros_planar_move_plugin:=$(arg ros_planar_move_plugin) omni_wheels:=$(arg omni_drive) gpu:=$(arg use_gpu_for_simulation) gps_latitude:='$(arg gps_latitude)' gps_longitude:='$(arg gps_longitude)'" />
+  <arg name="urdf_file" default="$(find xacro)/xacro '$(find robot_description)/robots/$(arg robot_xacro)' prefix:=$(arg prefix)  ros_planar_move_plugin:=$(arg ros_planar_move_plugin) omni_wheels:=$(arg omni_drive) gpu:=$(arg use_gpu_for_simulation) gps_latitude:='$(arg gps_latitude)' gps_longitude:='$(arg gps_longitude)'" />
   
   <!-- Load the URDF into ROS parameter server -->
   <param name="robot_description" command="$(arg urdf_file)" />

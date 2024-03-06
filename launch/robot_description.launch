@@ -7,7 +7,7 @@
   <arg name="robot_model" default="$(optenv ROBOT_MODEL summit_xl)"/>
   <arg name="kinematics" default="$(optenv ROBOT_KINEMATICS diff)"/>
 
-  <arg name="robot_xacro_package" default="$(optenv ROBOT_XACRO_PACKAGE summit_xl_description)"/>
+  <arg name="robot_xacro_package" default="$(optenv ROBOT_XACRO_PACKAGE robot_description)"/>
   <arg name="robot_xacro_folder" default="$(optenv ROBOT_XACRO_FOLDER none)"/>
   <arg name="robot_xacro_file" default="$(optenv ROBOT_XACRO summit_xl_std.urdf.xacro)"/>
   <arg if="$(eval robot_xacro_folder =='none')" name="robot_xacro_path" default="$(find robot_description)/robots/$(arg robot_xacro_file)"/>
