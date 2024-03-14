@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<robot name="summit_xl" xmlns:xacro="http://wiki.ros.org/xacro">
+
+
+	<!-- ***************** -->
+	<!-- Imported elements -->
+	<!-- ***************** -->
+
+	<!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
+
+	<!-- Import summit XL base elements -->
+	<xacro:include filename="$(find robot_description)/urdf/bases/summit_hm_base.urdf.xacro" />
+	<xacro:include filename="$(find robot_description)/urdf/structures/summit_hm/summit_hm_structure.xacro" />
+
+	
+
+	<!-- Import all available sensors -->
+	<xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />
+
+
+	<!-- Flag to select the high or low quality model -->
+	<xacro:arg name="prefix" default="robot_"/>
+	<xacro:arg name="ros_planar_move_plugin" default="false"/>
+    <xacro:arg name="ros_planar_move_plugin_force_based" default="false"/>
+	<xacro:arg name="kinematics" default="skid"/>
+	<xacro:arg name="gpu" default="false"/>
+	<xacro:arg name="gps_latitude" default="0"/>
+	<xacro:arg name="gps_longitude" default="0"/>
+
+
+    <xacro:macro name="summit_hm" params="prefix publish_bf hq kinematics:=skid">
+		<xacro:property name="top_structure_mesh" value="robot_description/meshes/structures/summit_hm/summit_hm_top_structure" />
+		<xacro:property name="lidar_structure_mesh" value="robot_description/meshes/structures/summit_hm/summit_hm_3dlidar_structure" />
+		<xacro:property name="top_structure_x" value="-0.13067"/>
+		<xacro:property name="top_structure_y" value="0"/>
+		<xacro:property name="top_structure_z" value="0.27998"/>
+		<xacro:property name="top_lidar_structure_x" value="-0.11924"/>
+		<xacro:property name="top_lidar_structure_y" value="0"/>
+		<xacro:property name="top_lidar_structure_z" value="0.27609"/>
+
+		<!-- *************** -->
+		<!-- Robots Elements -->
+		<!-- *************** -->
+
+		<!-- Here we create the robot elements using the xacro:macros imported at the beggining of this file -->
+
+		<!-- Summit XL base -->
+		<xacro:summit_hm_base prefix="${prefix}" publish_bf="true" hq="${hq}" />
+		
+		<xacro:summit_hm_structure prefix="${prefix}_top_structure" parent="${prefix}base_link" mesh_file="${top_structure_mesh}" >
+			<origin xyz="${top_structure_x} ${top_structure_y} ${top_structure_z}" rpy="0 0 0"/>
+		</xacro:summit_hm_structure>
+		<xacro:summit_hm_structure prefix="${prefix}_3dlidar_structure" parent="${prefix}base_link" mesh_file="${lidar_structure_mesh}" >
+			<origin xyz="${top_lidar_structure_x} ${top_lidar_structure_y} ${top_lidar_structure_z}" rpy="0 0 0"/>
+		</xacro:summit_hm_structure>
+
+
+		<!-- Gazebo ros control pluggins -->
+		<xacro:ros_control/>
+
+		<xacro:if value="$(arg ros_planar_move_plugin)">
+
+			<xacro:skid_steering prefix="${prefix}" publish_tf="true" force_based="$(arg ros_planar_move_plugin_force_based)"/>
+			
+
+		</xacro:if>
+
+   </xacro:macro>
+
+   <xacro:summit_hm prefix="$(arg prefix)" publish_bf="true" hq="true" kinematics="$(arg kinematics)"/>
+
+
+</robot>
