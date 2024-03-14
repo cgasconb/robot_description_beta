@@ -2,11 +2,6 @@
 <robot name="wheel" xmlns:xacro="http://wiki.ros.org/xacro">
 
   <xacro:property name="M_PI" value="3.1415926535897931" />
-  <!-- Wheels -->
-  <xacro:property name="rubber_wheel_radius" value="0.11" />
-  <xacro:property name="rubber_wheel_height" value="0.15" /> <!-- really is the wheel width -->
-  <xacro:property name="rubber_wheel_mass" value="6.5" /> <!-- in kg-->
-
 
   <xacro:macro name="cylinder_inertia" params="m r h">
     <inertia  ixx="${m*(3*r*r+h*h)/12}" ixy = "0" ixz = "0"
@@ -14,7 +9,9 @@
               izz="${m*(3*r*r+h*h)/12}" />
   </xacro:macro>
 
-  <xacro:macro name="rubber_wheel" params="prefix parent *origin reflect hq">
+  <xacro:macro name="rubber_wheel" params="prefix parent *origin reflect hq rubber_wheel_radius:=0.11 rubber_wheel_width:=0.15 rubber_wheel_mass:=6.5
+                                          mesh_file_left:=robot_description/meshes/wheels/rubber_wheel/rubber_wheel_left
+                                          mesh_file_right:=robot_description/meshes/wheels/rubber_wheel/rubber_wheel_right">
 
 <!--WHEEL TIRE -->
     <joint name="${prefix}_wheel_joint" type="continuous">
@@ -33,10 +30,10 @@
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
 						<xacro:if value="${reflect}">
-							<mesh filename="package://robot_description/meshes/wheels/rubber_wheel/rubber_wheel_left.dae" />
+							<mesh filename="package://${mesh_file_left}.dae" />
 						</xacro:if>
 						<xacro:unless value="${reflect}">
-							<mesh filename="package://robot_description/meshes/wheels/rubber_wheel/rubber_wheel_right.dae" />
+							<mesh filename="package://${mesh_file_right}.dae" />
 						</xacro:unless>
           </geometry>
         </xacro:if>
@@ -44,23 +41,26 @@
         <xacro:unless value="${hq}">
           <origin xyz="0 0 0" rpy="${M_PI/2} 0 0" />
           <geometry>
-            <cylinder length="${rubber_wheel_height}" radius="${rubber_wheel_radius}" />
+            <cylinder length="${rubber_wheel_width}" radius="${rubber_wheel_radius}" />
           </geometry>
         </xacro:unless>
       </visual>
 
       <collision>
-				<!--origin xyz="0 0 0" rpy="${M_PI/2} 0 0" /-->
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <!--cylinder length="${rubber_wheel_height}" radius="${rubber_wheel_radius}" /-->
-          <mesh filename="package://robot_description/meshes/wheels/rubber_wheel/rubber_wheel_right.dae" />
+          <xacro:if value="${reflect}">
+							<mesh filename="package://${mesh_file_left}.dae" />
+						</xacro:if>
+						<xacro:unless value="${reflect}">
+							<mesh filename="package://${mesh_file_right}.dae" />
+          </xacro:unless>
         </geometry>
       </collision>
       <inertial>
         <mass value="${rubber_wheel_mass}" />
         <origin xyz="0 0 0" />
-        <xacro:cylinder_inertia  m="${rubber_wheel_mass}" r="${rubber_wheel_radius}" h="${rubber_wheel_height}" />
+        <xacro:cylinder_inertia  m="${rubber_wheel_mass}" r="${rubber_wheel_radius}" h="${rubber_wheel_width}" />
       </inertial>
     </link>
 
@@ -76,16 +76,6 @@
         <motorTorqueConstant>20</motorTorqueConstant>
       </actuator>
      </transmission>
-
-    <!--gazebo reference="${prefix}_wheel">
-			<mu1 value="1.0"/>
-			<mu2 value="1.0"/>
-			<kp value="10000000.0" />
-			<kd value="1.0" />
-			<fdir1 value="1 0 0"/>
-      <turnGravityOff>false</turnGravityOff>
-    </gazebo-->
-
 
   </xacro:macro>
 
