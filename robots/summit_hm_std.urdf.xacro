@@ -49,10 +49,10 @@
 		<!-- Summit XL base -->
 		<xacro:summit_hm_base prefix="${prefix}" publish_bf="true" hq="${hq}" />
 		
-		<xacro:summit_hm_structure prefix="${prefix}_top_structure" parent="${prefix}base_link" mesh_file="${top_structure_mesh}" >
+		<xacro:summit_hm_structure prefix="${prefix}top_structure" parent="${prefix}base_link" mesh_file="${top_structure_mesh}" >
 			<origin xyz="${top_structure_x} ${top_structure_y} ${top_structure_z}" rpy="0 0 0"/>
 		</xacro:summit_hm_structure>
-		<xacro:summit_hm_structure prefix="${prefix}_3dlidar_structure" parent="${prefix}base_link" mesh_file="${lidar_structure_mesh}" >
+		<xacro:summit_hm_structure prefix="${prefix}3dlidar_structure" parent="${prefix}base_link" mesh_file="${lidar_structure_mesh}" >
 			<origin xyz="${top_lidar_structure_x} ${top_lidar_structure_y} ${top_lidar_structure_z}" rpy="0 0 0"/>
 		</xacro:summit_hm_structure>
 
