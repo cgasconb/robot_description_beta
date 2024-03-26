@@ -37,7 +37,6 @@
       <remap from="/joint_states" to="joint_states" />
   </node>
       
-  </node-->
   <node if="$(arg run_joint_state_publisher)" name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" respawn="false" output="screen">
       
   </node>
