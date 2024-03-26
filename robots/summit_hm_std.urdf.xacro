@@ -34,9 +34,10 @@
 		<xacro:property name="top_structure_x" value="-0.13067"/>
 		<xacro:property name="top_structure_y" value="0"/>
 		<xacro:property name="top_structure_z" value="0.27998"/>
-		<xacro:property name="top_lidar_structure_x" value="-0.11924"/>
+		<xacro:property name="top_lidar_structure_x" value="0"/>
 		<xacro:property name="top_lidar_structure_y" value="0"/>
 		<xacro:property name="top_lidar_structure_z" value="0.27609"/>
+		<xacro:property name="PI" value="3.1415926535897931"/>
 
 		<!-- *************** -->
 		<!-- Robots Elements -->
@@ -53,6 +54,43 @@
 		<xacro:summit_hm_structure prefix="${prefix}_3dlidar_structure" parent="${prefix}base_link" mesh_file="${lidar_structure_mesh}" >
 			<origin xyz="${top_lidar_structure_x} ${top_lidar_structure_y} ${top_lidar_structure_z}" rpy="0 0 0"/>
 		</xacro:summit_hm_structure>
+
+    	<!-- IMU -->
+    	<xacro:sensor_imu prefix="$(arg prefix)imu" parent="$(arg prefix)base_link" topic="imu/data">
+    	  <origin xyz="0.0 0.0 0.10398" rpy="0 0 0"/>
+    	</xacro:sensor_imu>
+
+    	<!-- PTZ camera -->
+
+    	<xacro:sensor_link_750_nh prefix="$(arg prefix)ptz_camera" parent="$(arg prefix)base_link">
+    	  <origin xyz="0.20878 0 0.28738" rpy="0 0 0"/>
+    	</xacro:sensor_link_750_nh>
+
+    	<!-- Sensia camera -->
+		
+    	<xacro:sensor_blk_arc prefix="$(arg prefix)sensia_camera" parent="$(arg prefix)base_link">
+    	  <origin xyz="0.00001 0 0.54098" rpy="0 0 0"/>
+    	</xacro:sensor_blk_arc>
+
+    	<!-- RGBD -->
+
+    	<xacro:sensor_intel_d435 prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
+		<origin xyz="0.30995 0.0 0.16097" rpy="0 0 0"/>
+    	</xacro:sensor_intel_d435>
+
+		<xacro:sensor_intel_d435 prefix="$(arg prefix)rear_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
+		<origin xyz="-0.308 0.0 0.18308" rpy="0 ${-PI} 0"/>
+    	</xacro:sensor_intel_d435>
+
+        <!-- GPS -->
+        <xacro:sensor_ublox prefix="${prefix}gps" parent="${prefix}base_link" use_mast="false">
+            <origin xyz="-0.26135 0.249 0.787" rpy="0 0 0"/>
+        </xacro:sensor_ublox>
+
+    	<!-- LIDAR -->
+    	<xacro:sensor_rs_helios_16p prefix="$(arg prefix)top_3d_laser" prefix_topic="top_3d_laser" parent="$(arg prefix)base_link" gpu="false">
+    	  <origin xyz="0.0 0.0 0.38998" rpy="0 0 0"/>
+    	</xacro:sensor_rs_helios_16p>
 
 
 		<!-- Gazebo ros control pluggins -->
