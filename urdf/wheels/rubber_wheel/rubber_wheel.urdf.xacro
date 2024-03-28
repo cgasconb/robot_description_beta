@@ -10,8 +10,7 @@
   </xacro:macro>
 
   <xacro:macro name="rubber_wheel" params="prefix parent *origin reflect hq rubber_wheel_radius:=0.11 rubber_wheel_width:=0.15 rubber_wheel_mass:=6.5
-                                          mesh_file_left:=robot_description/meshes/wheels/rubber_wheel/rubber_wheel_left
-                                          mesh_file_right:=robot_description/meshes/wheels/rubber_wheel/rubber_wheel_right">
+                                          mesh_file:=robot_description/meshes/wheels/rubber_wheel/rubber_wheel_right">
 
 <!--WHEEL TIRE -->
     <joint name="${prefix}_wheel_joint" type="continuous">
@@ -27,14 +26,14 @@
       <visual>
         <!-- HIGH RESOLUTION WHEELS -->
         <xacro:if value="${hq}">
-          <origin xyz="0 0 0" rpy="0 0 0" />
+          <xacro:unless value="${reflect}">
+            <origin xyz="0 0 0" rpy="0 0 0" />
+          </xacro:unless>
+          <xacro:if value="${reflect}">
+            <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+          </xacro:if>
           <geometry>
-						<xacro:if value="${reflect}">
-							<mesh filename="package://${mesh_file_left}.dae" />
-						</xacro:if>
-						<xacro:unless value="${reflect}">
-							<mesh filename="package://${mesh_file_right}.dae" />
-						</xacro:unless>
+							<mesh filename="package://${mesh_file}.dae" />	
           </geometry>
         </xacro:if>
        <!-- LOW RESOLUTION WHEELS -->
@@ -47,14 +46,14 @@
       </visual>
 
       <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <xacro:if value="${reflect}">
-							<mesh filename="package://${mesh_file_left}.stl" />
-						</xacro:if>
-						<xacro:unless value="${reflect}">
-							<mesh filename="package://${mesh_file_right}.stl" />
+          <xacro:unless value="${reflect}">
+            <origin xyz="0 0 0" rpy="0 0 0" />
           </xacro:unless>
+          <xacro:if value="${reflect}">
+            <origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+          </xacro:if>        
+          <geometry>
+						<mesh filename="package://${mesh_file}.stl" />
         </geometry>
       </collision>
       <inertial>
