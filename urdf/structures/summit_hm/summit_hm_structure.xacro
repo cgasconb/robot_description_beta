@@ -23,13 +23,13 @@
            <color rgba="0.5 0.5 0.5 1"/>
         </material>
 	      <geometry>
-	        <mesh filename="package://${mesh_file}.stl"/>
+	        <mesh filename="package://${mesh_file}.dae"/>
 	      </geometry>
 	    </visual>
 	    <collision>
 	      <origin rpy="0 0 0" xyz="0 0 0"/>
 	      <geometry>
-	        <mesh filename="package://${mesh_file}.dae"/>
+	        <mesh filename="package://${mesh_file}.stl"/>
 	      </geometry>
 	    </collision>
 	  </link>

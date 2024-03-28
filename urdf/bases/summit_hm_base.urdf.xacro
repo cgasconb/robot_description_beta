@@ -56,7 +56,7 @@
 			</xacro:if>
 			<xacro:unless value="${hq}">
 			<geometry>
-				<mesh filename="package://robot_description/meshes/bases/summit_hm_body.stl"/>
+				<mesh filename="package://robot_description/meshes/bases/summit_hm_body.dae"/>
 			</geometry>
 			</xacro:unless>
 			<material name="darkgrey">
@@ -66,10 +66,14 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0 " />
 			<geometry>
-				<mesh filename="package://robot_description/meshes/bases/summit_hm_body.dae"/>
+				<mesh filename="package://robot_description/meshes/bases/summit_hm_body.stl"/>
 			</geometry>
 		</collision>
 		</link>
+		<gazebo reference="${prefix}base_link">
+			<material>Gazebo/Gray</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
 
 		<!-- DOCKING CONTACTS -->
 		<joint name="${prefix}base_docking_joint" type="fixed">

@@ -50,10 +50,10 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
           <xacro:if value="${reflect}">
-							<mesh filename="package://${mesh_file_left}.dae" />
+							<mesh filename="package://${mesh_file_left}.stl" />
 						</xacro:if>
 						<xacro:unless value="${reflect}">
-							<mesh filename="package://${mesh_file_right}.dae" />
+							<mesh filename="package://${mesh_file_right}.stl" />
           </xacro:unless>
         </geometry>
       </collision>
@@ -76,6 +76,11 @@
         <motorTorqueConstant>20</motorTorqueConstant>
       </actuator>
      </transmission>
+
+    <gazebo reference="${prefix}_wheel">
+			<material>Gazebo/Black</material>
+			<turnGravityOff>false</turnGravityOff>	
+		</gazebo>
 
   </xacro:macro>
 
