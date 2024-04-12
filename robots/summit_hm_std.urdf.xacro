@@ -73,7 +73,7 @@
     	</xacro:sensor_intel_d435-->
 
         <!-- GPS -->
-        <xacro:sensor_ublox prefix="${prefix}gps" parent="${prefix}base_link" use_mast="false" include_inertial="false">
+        <xacro:sensor_ublox prefix="${prefix}gps" parent="${prefix}base_link" use_mast="false">
             <origin xyz="-0.26135 0.249 0.7671" rpy="0 0 0"/>
         </xacro:sensor_ublox>
 
