@@ -27,6 +27,7 @@
 	<xacro:arg name="gpu" default="false"/>
 	<xacro:arg name="gps_latitude" default="0"/>
 	<xacro:arg name="gps_longitude" default="0"/>
+	<xacro:arg name="sim_control_period" default="0.004"/>
 
 
     <xacro:macro name="summit_hm" params="prefix publish_bf hq kinematics:=skid">
@@ -37,7 +38,7 @@
 		<xacro:property name="top_structure_z" value="0.27998"/>
 		<xacro:property name="top_lidar_structure_x" value="0"/>
 		<xacro:property name="top_lidar_structure_y" value="0"/>
-		<xacro:property name="top_lidar_structure_z" value="0.27609"/>
+		<xacro:property name="top_lidar_structure_z" value="0.38998"/>
 		<xacro:property name="PI" value="3.1415926535897931"/>
 
 		<!-- *************** -->
@@ -61,51 +62,38 @@
     	  <origin xyz="0.0 0.0 0.10398" rpy="0 0 0"/>
     	</xacro:sensor_imu>
 
-    	<!-- PTZ camera -->
-
-    	<xacro:sensor_link_750_nh prefix="$(arg prefix)ptz_camera" parent="$(arg prefix)base_link">
-    	  <origin xyz="0.20878 0 0.28738" rpy="0 0 0"/>
-    	</xacro:sensor_link_750_nh>
-
-    	<!-- Sensia camera -->
-		
-    	<xacro:sensor_blk_arc prefix="$(arg prefix)sensia_camera" parent="$(arg prefix)base_link">
-    	  <origin xyz="0.00001 0 0.54098" rpy="0 0 0"/>
-    	</xacro:sensor_blk_arc>
-
+    	
     	<!-- RGBD -->
-
     	<xacro:sensor_intel_d435 prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
 		<origin xyz="0.30995 0.0 0.16097" rpy="0 0 0"/>
     	</xacro:sensor_intel_d435>
 
-		<xacro:sensor_intel_d435 prefix="$(arg prefix)rear_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
+		<!--xacro:sensor_intel_d435 prefix="$(arg prefix)rear_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="rear_rgbd_camera">
 		<origin xyz="-0.308 0.0 0.18308" rpy="0 ${-PI} 0"/>
-    	</xacro:sensor_intel_d435>
+    	</xacro:sensor_intel_d435-->
 
         <!-- GPS -->
-        <xacro:sensor_ublox prefix="${prefix}gps" parent="${prefix}base_link" use_mast="false">
+        <xacro:sensor_ublox prefix="${prefix}gps" parent="${prefix}base_link" use_mast="false" include_inertial="false">
             <origin xyz="-0.26135 0.249 0.7671" rpy="0 0 0"/>
         </xacro:sensor_ublox>
 
     	<!-- LIDAR -->
-    	<xacro:sensor_rs_helios_16p prefix="$(arg prefix)top_3d_laser" prefix_topic="top_3d_laser" parent="$(arg prefix)base_link" gpu="false">
+    	<xacro:sensor_rs_helios_16p prefix="$(arg prefix)top_3d_laser" prefix_topic="top_3d_laser" parent="$(arg prefix)base_link" gpu="$(arg gpu)">
     	  <origin xyz="0.0 0.0 0.38998" rpy="0 0 0"/>
     	</xacro:sensor_rs_helios_16p>
 
-		<!-- GPS -->
+		<!-- Antenna -->
 		<xacro:sensor_antena_combo_5G_teltonika prefix="$(arg prefix)antenna" parent="$(arg prefix)base_link" gps_latitude="$(arg gps_latitude)" gps_longitude="$(arg gps_longitude)">
 			<origin xyz="-0.26135 -0.249 0.597" rpy="0 0 0"/>
 		</xacro:sensor_antena_combo_5G_teltonika>
 
 
 		<!-- Gazebo ros control pluggins -->
-		<xacro:ros_control/>
+		<xacro:ros_control control_period="$(arg sim_control_period)"/>
 
 		<xacro:if value="$(arg ros_planar_move_plugin)">
 
 			<xacro:skid_steering prefix="${prefix}" publish_tf="true" force_based="$(arg ros_planar_move_plugin_force_based)"/>
-			
 
 		</xacro:if>
 

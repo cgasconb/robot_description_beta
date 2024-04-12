@@ -16,11 +16,11 @@
 		<xacro:property name="docking_contact_offset_x" value="0.337" />
 		<xacro:property name="docking_contact_offset_y" value="0.0" />
 		<xacro:property name="docking_contact_offset_z" value="0.03223" />
-		<xacro:property name="rubber_wheel_radius" value="0.13" />
+		<xacro:property name="rubber_wheel_radius" value="0.1397" />
 		<xacro:property name="rubber_wheel_width" value="0.12" />
-		<xacro:property name="rubber_wheel_mass" value="8" />
-		<xacro:property name="mesh_file_left" value="robot_description/meshes/wheels/rubber_wheel/rubber_wheel_v202311_left" />
-		<xacro:property name="mesh_file_right" value="robot_description/meshes/wheels/rubber_wheel/rubber_wheel_v202311_right" />
+		<xacro:property name="rubber_wheel_mass" value="11" />
+		<xacro:property name="mesh_file_left" value="robot_description/meshes/wheels/rubber_wheel/rubber_wheel_v5.3" />
+		<xacro:property name="mesh_file_right" value="robot_description/meshes/wheels/rubber_wheel/rubber_wheel_v5.3" />
 
 		<!-- BASE FOOTPRINT -->
 		<xacro:if value="${publish_bf}">
@@ -56,7 +56,7 @@
 			</xacro:if>
 			<xacro:unless value="${hq}">
 			<geometry>
-				<mesh filename="package://robot_description/meshes/bases/summit_hm_body.stl"/>
+				<mesh filename="package://robot_description/meshes/bases/summit_hm_body.dae"/>
 			</geometry>
 			</xacro:unless>
 			<material name="darkgrey">
@@ -66,10 +66,14 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 0 0 " />
 			<geometry>
-				<mesh filename="package://robot_description/meshes/bases/summit_hm_body.dae"/>
+				<mesh filename="package://robot_description/meshes/bases/summit_hm_body.stl"/>
 			</geometry>
 		</collision>
 		</link>
+		<gazebo reference="${prefix}base_link">
+			<material>Gazebo/Gray</material>
+			<turnGravityOff>false</turnGravityOff>
+		</gazebo>
 
 		<!-- DOCKING CONTACTS -->
 		<joint name="${prefix}base_docking_joint" type="fixed">
@@ -83,25 +87,25 @@
 
 		<xacro:rubber_wheel prefix="${prefix}front_right" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
 							rubber_wheel_width="${rubber_wheel_width}" rubber_wheel_mass="${rubber_wheel_mass}" 
-							mesh_file_left="${mesh_file_left}" mesh_file_right="${mesh_file_right}">
+							mesh_file="${mesh_file_right}">
 			<origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
 		</xacro:rubber_wheel>
 
-		<xacro:rubber_wheel prefix="${prefix}front_left" parent="${prefix}base_link" reflect="true" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
+		<xacro:rubber_wheel prefix="${prefix}front_left" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
 							rubber_wheel_width="${rubber_wheel_width}" rubber_wheel_mass="${rubber_wheel_mass}" 
-							mesh_file_left="${mesh_file_left}" mesh_file_right="${mesh_file_right}">
+							mesh_file="${mesh_file_left}">
 			<origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
 		</xacro:rubber_wheel>
 
-		<xacro:rubber_wheel prefix="${prefix}back_left" parent="${prefix}base_link" reflect="true" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
+		<xacro:rubber_wheel prefix="${prefix}back_left" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
 							rubber_wheel_width="${rubber_wheel_width}" rubber_wheel_mass="${rubber_wheel_mass}" 
-							mesh_file_left="${mesh_file_left}" mesh_file_right="${mesh_file_right}">
+							mesh_file="${mesh_file_left}">
 			<origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
 		</xacro:rubber_wheel>
 
 		<xacro:rubber_wheel prefix="${prefix}back_right" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
 							rubber_wheel_width="${rubber_wheel_width}" rubber_wheel_mass="${rubber_wheel_mass}" 
-							mesh_file_left="${mesh_file_left}" mesh_file_right="${mesh_file_right}">
+							mesh_file="${mesh_file_right}">
 			<origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
 		</xacro:rubber_wheel>
 

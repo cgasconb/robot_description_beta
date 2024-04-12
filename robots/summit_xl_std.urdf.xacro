@@ -43,6 +43,8 @@
 
 
     <xacro:macro name="summit_xl" params="prefix publish_bf hq kinematics">
+	  <xacro:property name="mesh_file_left" value="robot_description/meshes/wheels/rubber_wheel/rubber_wheel_left" />
+	  <xacro:property name="mesh_file_right" value="robot_description/meshes/wheels/rubber_wheel/rubber_wheel_right" />
 
 		<!-- *************** -->
 		<!-- Robots Elements -->
@@ -54,19 +56,19 @@
 		<xacro:summit_xl_base prefix="$(arg prefix)" publish_bf="true" hq="${hq}" />
 
     <xacro:if value="${kinematics == 'skid' or kinematics == 'skid_4w'}">
-  		<xacro:rubber_wheel prefix="$(arg prefix)front_right" parent="$(arg prefix)base_link" reflect="false" hq="${hq}">
+  		<xacro:rubber_wheel prefix="$(arg prefix)front_right" parent="$(arg prefix)base_link" reflect="false" hq="${hq}" mesh_file="${mesh_file_right}">
   			<origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
   		</xacro:rubber_wheel>
 
-  		<xacro:rubber_wheel prefix="$(arg prefix)front_left" parent="$(arg prefix)base_link" reflect="true" hq="${hq}">
+  		<xacro:rubber_wheel prefix="$(arg prefix)front_left" parent="$(arg prefix)base_link" reflect="false" hq="${hq}" mesh_file="${mesh_file_left}">
   			<origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
   		</xacro:rubber_wheel>
 
-  		<xacro:rubber_wheel prefix="$(arg prefix)back_left" parent="$(arg prefix)base_link" reflect="true" hq="${hq}">
+  		<xacro:rubber_wheel prefix="$(arg prefix)back_left" parent="$(arg prefix)base_link" reflect="false" hq="${hq}" mesh_file="${mesh_file_left}">
   			<origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
   		</xacro:rubber_wheel>
 
-  		<xacro:rubber_wheel prefix="$(arg prefix)back_right" parent="$(arg prefix)base_link" reflect="false" hq="${hq}">
+  		<xacro:rubber_wheel prefix="$(arg prefix)back_right" parent="$(arg prefix)base_link" reflect="false" hq="${hq}" mesh_file="${mesh_file_right}">
   			<origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
   		</xacro:rubber_wheel>
     </xacro:if>

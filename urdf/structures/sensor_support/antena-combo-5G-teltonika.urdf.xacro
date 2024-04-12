@@ -23,13 +23,13 @@
            <color rgba="1 1 1 1"/>
         </material>
 	      <geometry>
-	        <mesh filename="package://robot_description/meshes/structures/sensor_support/antena-combo-5G-teltonika.STL" scale="1.0 1.0 1.0"/>
+	        <mesh filename="package://robot_description/meshes/structures/sensor_support/antena-combo-5G-teltonika.stl" scale="1.0 1.0 1.0"/>
 	      </geometry>
 	    </visual>
 	    <collision>
-	      <origin rpy="0 0 0" xyz="0 0 -0.15"/>
+	      <origin rpy="0 0 0" xyz="0 0 0.05"/>
 	      <geometry>
-	        <cylinder radius="0.08" length="0.48"/>
+	        <cylinder radius="0.08" length="0.1"/>
 	      </geometry>
 	    </collision>
 	  </link>
@@ -39,31 +39,6 @@
 	    <material>Gazebo/Black</material>
 	    <gravity>true</gravity>
 	  </gazebo>
-
-    <gazebo>
-      <plugin name="${prefix}_controller" filename="libhector_gazebo_ros_gps.so">
-        <alwaysOn>1</alwaysOn>
-        <updateRate>${update_rate}</updateRate>
-        <bodyName>${prefix}_base_link</bodyName> <!-- must be the link of the gps device, not the base_link or base_footprint -->
-        <frameId>${prefix}_base_link</frameId>
-        <topicName>gps/fix</topicName>
-        <!-- GPS coordinates -->
-        <referenceLatitude>${gps_latitude}</referenceLatitude>
-        <referenceLongitude>${gps_longitude}</referenceLongitude>
-        <!-- To set heading in ENU orientation (degrees) -->
-        <referenceHeading>90</referenceHeading>
-        <velocityTopicName>gps/fix_velocity</velocityTopicName>
-        <drift>0.0 0.0 0.0</drift>
-        <!--<drift>0.0001 0.0001 0.0001</drift>-->
-        <!--<drift>0.3 0.3 0.3</drift>-->
-        <gaussianNoise>0.00001 0.00001 0.00001</gaussianNoise>
-        <!--<gaussianNoise>0.00001 0.00001 0.00001</gaussianNoise>-->
-        <velocityDrift>0.00001 0.00001 0.00001</velocityDrift>
-        <!--<velocityGaussianNoise>0.1 0.1 0.1</velocityGaussianNoise>-->
-        <velocityGaussianNoise>0.00001 0.00001 0.00001</velocityGaussianNoise>
-
-      </plugin>
-	</gazebo>
 
   </xacro:macro>
 
