@@ -9,7 +9,7 @@
               izz="${m*(3*r*r+h*h)/12}" />
   </xacro:macro>
 
-  <xacro:macro name="rubber_wheel" params="prefix parent *origin reflect hq rubber_wheel_radius:=0.11 rubber_wheel_width:=0.15 rubber_wheel_mass:=6.5
+  <xacro:macro name="rubber_wheel" params="prefix parent *origin *axis reflect hq rubber_wheel_radius:=0.11 rubber_wheel_width:=0.15 rubber_wheel_mass:=6.5
                                           mesh_file:=robot_description/meshes/wheels/rubber_wheel/rubber_wheel_right">
 
 <!--WHEEL TIRE -->
@@ -17,7 +17,7 @@
       <parent link="${parent}"/>
       <child link="${prefix}_wheel"/>
       <xacro:insert_block name="origin" />
-      <axis xyz="0 1 0" rpy="0 0 0" />
+      <xacro:insert_block name="axis" />
       <limit effort="100" velocity="100"/>
       <joint_properties damping="0.0" friction="0.0"/>
     </joint>

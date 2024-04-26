@@ -89,24 +89,28 @@
 							rubber_wheel_width="${rubber_wheel_width}" rubber_wheel_mass="${rubber_wheel_mass}" 
 							mesh_file="${mesh_file_right}">
 			<origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        	<axis xyz="0 -1 0" rpy="0 0 0" />
 		</xacro:rubber_wheel>
 
 		<xacro:rubber_wheel prefix="${prefix}front_left" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
 							rubber_wheel_width="${rubber_wheel_width}" rubber_wheel_mass="${rubber_wheel_mass}" 
 							mesh_file="${mesh_file_left}">
 			<origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        	<axis xyz="0 1 0" rpy="0 0 0" />
 		</xacro:rubber_wheel>
 
-		<xacro:rubber_wheel prefix="${prefix}back_left" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
+		<xacro:rubber_wheel prefix="${prefix}rear_left" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
 							rubber_wheel_width="${rubber_wheel_width}" rubber_wheel_mass="${rubber_wheel_mass}" 
 							mesh_file="${mesh_file_left}">
 			<origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        	<axis xyz="0 1 0" rpy="0 0 0" />
 		</xacro:rubber_wheel>
 
-		<xacro:rubber_wheel prefix="${prefix}back_right" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
+		<xacro:rubber_wheel prefix="${prefix}rear_right" parent="${prefix}base_link" reflect="false" hq="${hq}" rubber_wheel_radius="${rubber_wheel_radius}"
 							rubber_wheel_width="${rubber_wheel_width}" rubber_wheel_mass="${rubber_wheel_mass}" 
 							mesh_file="${mesh_file_right}">
 			<origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+        	<axis xyz="0 -1 0" rpy="0 0 0" />
 		</xacro:rubber_wheel>
 
 	</xacro:macro>
