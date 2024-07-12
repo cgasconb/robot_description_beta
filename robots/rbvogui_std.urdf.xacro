@@ -35,7 +35,7 @@
     <xacro:property name="hq" value="true" />
     <xacro:property name="publish_bf" value="true" />
 
-    <xacro:arg name="prefix" default="robot_" />
+    <xacro:arg name="prefix" default="" />
     <xacro:arg name="gpu" default="true" />
     <xacro:arg name="kinematics" default="omni" />
     <xacro:arg name="load_kinematics_file" default="false" />
@@ -98,24 +98,24 @@
         <!-- SENSORS see robotnik_sensors for the specific configuration -->
 
         <!-- IMU -->
-        <xacro:sensor_vectornav prefix="${prefix}imu" parent="${prefix}chassis_link">
+    	<xacro:sensor_vectornav frame_prefix="${prefix}imu_" parent="$(arg prefix)chassis_link" topic_prefix="imu/data">
             <origin xyz="0.3 -0.3 0.0725" rpy="0 0 0"/>
         </xacro:sensor_vectornav>
 
-        <!-- Front Camera -->
+        <!-- Front Camera 
         <xacro:sensor_orbbec_astra prefix="${prefix}front_rgbd_camera" parent="${prefix}chassis_link">
             <origin xyz="0.46462 0.0 0.18258" rpy="0 0 0"/>
-        </xacro:sensor_orbbec_astra>
+        </xacro:sensor_orbbec_astra>-->
 
-        <!-- GPS -->
+        <!-- GPS 
         <xacro:sensor_ublox prefix="${prefix}gps" parent="${prefix}chassis_link" use_mast="true">
             <origin xyz="-0.3875 0.34553 0.3965" rpy="0 0 0"/>
-        </xacro:sensor_ublox>
+        </xacro:sensor_ublox>-->
 
-        <!-- 2d laser -->
+        <!-- 2d laser 
         <xacro:sensor_sick_tim551 prefix="${prefix}front_laser" parent="${prefix}chassis_link" gpu="${gpu}" min_angle="${-PI/2}" max_angle="${PI/2}" prefix_topic="front_laser">
-            <origin xyz="0.53 0.0 -0.0245" rpy="${PI} 0 0"/> <!-- Verificar X -->
-        </xacro:sensor_sick_tim551>
+            <origin xyz="0.53 0.0 -0.0245" rpy="${PI} 0 0"/> 
+        </xacro:sensor_sick_tim551> -->
 
         <!-- 3D Laser
         <xacro:sensor_rslidar_16 prefix="${prefix}top_3d_laser" parent="${prefix}chassis_link" prefix_topic="top_3d_laser" gpu="${gpu}">
