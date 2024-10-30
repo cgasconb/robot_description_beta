@@ -74,7 +74,7 @@ def generate_launch_description():
     arg = ExtendedArgument(
         name='robot_xacro_file',
         description='Name of the xacro file',
-        default_value='robot.urdf.xacro',
+        default_value='versions/rb_kairos/rbkairos_base.urdf.xacro',
         use_env=True,
         environment='ROBOT_XACRO_FILE',
     )
@@ -98,7 +98,7 @@ def generate_launch_description():
             FindExecutable(name="xacro"),
             " ",
             params['robot_xacro_path'],
-            " prefix:=''",
+            " prefix:='robot_'",
         ]
     )
     robot_description_param = ParameterValue(robot_description_content, value_type=str)
@@ -113,7 +113,7 @@ def generate_launch_description():
             {
               'robot_description': robot_description_param,
               'publish_frequency': 100.0,
-              'frame_prefix': [params['robot_id'], '/'],
+              'frame_prefix': [params['robot_id'], '_'],
             }
         ],
     ))

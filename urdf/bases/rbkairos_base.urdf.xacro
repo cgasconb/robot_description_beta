@@ -88,12 +88,12 @@
   			<origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
   		</xacro:omni_wheel>
           <!-- IMU -->
-  		<xacro:sensor_imu_hector prefix="$(arg prefix)imu" parent="$(arg prefix)base_link">
+        <xacro:sensor_vectornav prefix="${prefix}" parent="${prefix}base_link" topic="/robot/imu/data">
   			<origin xyz="${imu_offset_x} ${imu_offset_y} ${imu_offset_z}" rpy="0 0 0"/>
-  		</xacro:sensor_imu_hector>
+        </xacro:sensor_vectornav>
 
   		<!-- SENSORS -->
-  		<xacro:sensor_sick_s300 prefix="$(arg prefix)front_laser" parent="$(arg prefix)base_link" prefix_topic="front_laser" gpu="${gpu}">
+  		<!-- <xacro:sensor_sick_s300 prefix="$(arg prefix)front_laser" parent="$(arg prefix)base_link" prefix_topic="front_laser" gpu="${gpu}">
   			<origin xyz="${front_laser_offset_x} ${front_laser_offset_y} ${front_laser_offset_z}" rpy="0 ${-PI} ${3/4*PI}" />
   		</xacro:sensor_sick_s300>
   		<xacro:sensor_sick_s300 prefix="$(arg prefix)rear_laser" parent="$(arg prefix)base_link" prefix_topic="rear_laser" gpu="${gpu}">
@@ -101,9 +101,9 @@
   		</xacro:sensor_sick_s300>
 
 
-  		<xacro:sensor_orbbec_astra prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" prefix_topic="front_rgbd_camera">
+  		<xacro:sensor_orbbec_astra prefix="$(arg prefix)front_rgbd_camera" parent="$(arg prefix)base_link" ns="$(arg prefix)">
   			<origin xyz="${front_rgbd_camera_offset_x} ${front_rgbd_camera_offset_y} ${front_rgbd_camera_offset_z}" rpy="0 0 0"/>
-  		</xacro:sensor_orbbec_astra>
+  		</xacro:sensor_orbbec_astra> -->
 
 
 
