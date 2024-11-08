@@ -4,7 +4,7 @@
 
   <xacro:include filename="$(find robot_description)/urdf/bases/gazebo/summit_xl_base.gazebo.xacro" />
 
-  <xacro:macro name="summit_xl_base" params="prefix publish_bf hq">
+  <xacro:macro name="summit_xl_base" params="robot_id publish_bf hq">
 
 	  <!-- Robot mechanical and motor parameters -->
 	  <xacro:property name="PI" value="3.1415926535897931"/>
@@ -12,7 +12,7 @@
 
 	  <!-- BASE FOOTPRINT -->
 	  <xacro:if value="${publish_bf}">
-		<link name="${prefix}base_footprint">
+		<link name="${robot_id}_base_footprint">
 		  <visual>
 			  <origin xyz="0 0 0" rpy="0 0 0" />
 			  <geometry>
@@ -21,15 +21,15 @@
 		  </visual>
 		</link>
 
-		<joint name="${prefix}base_footprint_joint" type="fixed">
+		<joint name="${robot_id}_base_footprint_joint" type="fixed">
 		  <origin xyz="0 0 ${wheel_radius}" rpy="0 0 0" /> <!-- ${wheel_radius} property must be defined inside wheel description -->
-		  <parent link="${prefix}base_footprint"/>
-		  <child link="${prefix}base_link" />
+		  <parent link="${robot_id}_base_footprint"/>
+		  <child link="${robot_id}_base_link" />
 		</joint>
 	  </xacro:if>
 
 	  <!-- BASE_LINK -->
-	  <link name="${prefix}base_link">
+	  <link name="${robot_id}_base_link">
 		<inertial>
 		  <mass value="25.0" />
 		  <origin xyz="0 0 0" />
@@ -60,14 +60,14 @@
 	  </link>
 
 		<!-- DOCKING CONTACTS -->
-		<joint name="${prefix}base_docking_joint" type="fixed">
+		<joint name="${robot_id}_base_docking_joint" type="fixed">
 			<origin xyz="0.284 0.012 0.068" rpy="0 0 0 " />
-			<parent link="${prefix}base_link"/>
-			<child link="${prefix}base_docking_contact_link" />
+			<parent link="${robot_id}_base_link"/>
+			<child link="${robot_id}_base_docking_contact_link" />
 		</joint>
 
 		<!-- DOCKING LINK -->
-		<link name="${prefix}base_docking_contact_link" />
+		<link name="${robot_id}_base_docking_contact_link" />
 
   </xacro:macro>
 </robot>
