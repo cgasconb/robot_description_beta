@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel/gazebo/rbvogui_wheel.gazebo.xacro" />
-  <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel/rbvogui_rubber_wheel.urdf.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/wheels/wheel.gazebo.xacro" />
+  <xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel.urdf.xacro" />
 
   <xacro:property name="M_PI" value="3.1415926535897931" />
   <!-- Wheels -->
@@ -28,14 +28,12 @@
   </xacro:macro>
 
   <xacro:macro name="fixed_wheel" params="prefix parent *origin reflect hq">
-    <!-- TODO: check reflect parameter -->
-    <!--MOTOR WHEEL -->
+
     <joint name="${prefix}fixed_wheel_joint" type="fixed">
       <parent link="${parent}"/>
       <child link="${prefix}fixed_wheel"/>
       <xacro:insert_block name="origin" />
       <axis xyz="0 0 1" rpy="0 0 0" />
-      <!-- limit effort="${steer_joint_effort_limit}" velocity="${steer_joint_velocity_limit}" lower="-1.5708" upper="1.5708" / -->
       <limit effort="${steer_joint_effort_limit}" velocity="${steer_joint_velocity_limit}" lower="-3.00" upper="3.00"/>
       <joint_properties damping="${steer_joint_damping}" friction="${steer_joint_friction}"/>
     </joint>
@@ -52,7 +50,7 @@
             <origin xyz="0 0 0.0" rpy="0 0 ${M_PI}" />
           </xacro:unless>
           <geometry>
-            <mesh filename="package://robot_description/meshes/wheels/rubber_wheel/mw_frame.stl" />
+            <mesh filename="package://robot_description/meshes/wheels/mw_frame.stl" />
           </geometry>
         </xacro:if>
 
@@ -65,7 +63,7 @@
             <origin xyz="0 0 0.0" rpy="0 0 ${M_PI}" />
           </xacro:unless>
           <geometry>
-            <mesh filename="package://robot_description/meshes/wheels/rubber_wheel/mw_frame.stl" />
+            <mesh filename="package://robot_description/meshes/wheels/mw_frame.stl" />
           </geometry>
         </xacro:unless>
 
@@ -83,7 +81,7 @@
           <origin xyz="0 0 0.0" rpy="0 0 ${M_PI}" />
         </xacro:unless>
         <geometry>
-          <mesh filename="package://robot_description/meshes/wheels/rubber_wheel/mw_frame.stl" />
+          <mesh filename="package://robot_description/meshes/wheels/mw_frame.stl" />
         </geometry>
       </collision>
 
@@ -105,7 +103,6 @@
     <xacro:wheel prefix="${prefix}" parent="${prefix}fixed_wheel" reflect="${reflect}" hq="${hq}">
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:wheel>
-
   </xacro:macro>
 
 </robot>

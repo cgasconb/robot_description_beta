@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<robot name="rbkairos" xmlns:xacro="http://wiki.ros.org/xacro">
+
+  	<!-- ***************** -->
+  	<!-- Imported elements -->
+  	<!-- ***************** -->
+
+  	<!-- First we import all posible elements defined in the urdf.xacro files. All these elements are defined as macro:xacros -->
+
+  	<!-- Import summit XL base elements -->
+  	<xacro:include filename="$(find robot_description)/urdf/bases/rbkairos/rbkairos_base.urdf.xacro" />
+
+  	<!-- Import summit XL wheels -->
+  	<xacro:include filename="$(find robot_description)/urdf/wheels/omni_wheel/omni_wheel.urdf.xacro" />
+  	<xacro:include filename="$(find robot_description)/urdf/wheels/rubber_wheel/rubber_wheel.urdf.xacro" />
+  	<xacro:include filename="$(find robot_description)/urdf/structures/rbkairos_chassis/structure_hokuyo.urdf.xacro" />
+
+  	<!-- Import all available sensors -->
+  	<xacro:include filename="$(find robotnik_sensors)/urdf/all_sensors.urdf.xacro" />
+
+  	<xacro:property name="PI" value="3.1415926535897931"/>
+
+  	<!-- Wheel parameters -->
+  	<!-- Wheel parameters -->
+  	<xacro:property name="wheel_offset_x" value="0.2225" />    <!-- x,y,z in translation from base_link to the center of the wheel -->
+  	<xacro:property name="wheel_offset_y" value="0.2045" />
+  	<xacro:property name="wheel_offset_z" value="0.0" />
+
+  	<xacro:property name="front_laser_offset_x" value="0.2865"/>
+  	<xacro:property name="front_laser_offset_y" value="-0.20894"/>
+  	<xacro:property name="front_laser_offset_z" value="0.2973"/>
+
+  	<xacro:property name="rear_laser_offset_x" value="-0.2865"/>
+  	<xacro:property name="rear_laser_offset_y" value="0.20894"/>
+  	<xacro:property name="rear_laser_offset_z" value="0.2973"/>
+
+  	<xacro:property name="front_ptz_camera_offset_x" value="0.308"/>
+  	<xacro:property name="front_ptz_camera_offset_y" value="0.141"/>
+  	<xacro:property name="front_ptz_camera_offset_z" value="0.195"/>
+
+  	<xacro:property name="rear_ptz_camera_offset_x" value="-0.308"/>
+  	<xacro:property name="rear_ptz_camera_offset_y" value="-0.141"/>
+  	<xacro:property name="rear_ptz_camera_offset_z" value="0.195"/>
+
+    <xacro:property name="imu_offset_x" value="0.127"/>
+  	<xacro:property name="imu_offset_y" value="-0.129"/>
+  	<xacro:property name="imu_offset_z" value="0.212"/>
+
+  	<xacro:property name="front_rgbd_camera_offset_x" value="0.35850"/>
+  	<xacro:property name="front_rgbd_camera_offset_y" value="0.0"/>
+  	<xacro:property name="front_rgbd_camera_offset_z" value="0.25062"/>
+
+  	<xacro:property name="gps_offset_x" value="-0.365"/>
+  	<xacro:property name="gps_offset_y" value="-0.167"/>
+  	<xacro:property name="gps_offset_z" value="0.302"/>
+
+  	<xacro:arg name="robot_id" default="robot"/>
+
+    <xacro:macro name="rbkairos" params="robot_id">
+
+  		<!-- *************** -->
+  		<!-- Robots Elements -->
+  		<!-- *************** -->
+
+  		<!-- Here we create the robot elements using the xacro:macros imported at the beggining of this file -->
+
+  		<xacro:rbkairos_base robot_id="${robot_id}"/>
+
+  		<xacro:omni_wheel robot_id="${robot_id}_front_right" parent="${robot_id}_base_link" reflect="false" hq="true">
+  			<origin xyz="${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+  		</xacro:omni_wheel>
+
+  		<xacro:omni_wheel robot_id="${robot_id}_front_left" parent="${robot_id}_base_link" reflect="true" hq="true">
+  			<origin xyz="${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+  		</xacro:omni_wheel>
+
+  		<xacro:omni_wheel robot_id="${robot_id}_back_left" parent="${robot_id}_base_link" reflect="true" hq="true">
+  			<origin xyz="-${wheel_offset_x} ${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+  		</xacro:omni_wheel>
+
+  		<xacro:omni_wheel robot_id="${robot_id}_back_right" parent="${robot_id}_base_link" reflect="false" hq="true">
+  			<origin xyz="-${wheel_offset_x} -${wheel_offset_y} ${wheel_offset_z}" rpy="0 0 0"/>
+  		</xacro:omni_wheel>
+
+     </xacro:macro>
+
+</robot>
